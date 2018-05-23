@@ -1,4 +1,4 @@
-/*importScripts('./node_modules/workbox-sw/build/importScripts/workbox-sw.dev.v2.1.3.js');
+//importScripts('./node_modules/workbox-sw/build/importScripts/workbox-sw.dev.v2.1.3.js');
 const staticAssets = [
 		
 	'./',
@@ -10,7 +10,7 @@ const staticAssets = [
 
 
 ];
-
+/*
 const wb = new WorkboxSW();
 wb.precache(staticAssets);
 
