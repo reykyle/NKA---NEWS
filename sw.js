@@ -1,4 +1,4 @@
-//importScripts('./node_modules/workbox-sw/build/importScripts/workbox-sw.dev.v2.1.3.js');
+importScripts('./node_modules/workbox-sw/build/importScripts/workbox-sw.dev.v2.1.3.js');
 const staticAssets = [
 		
 	'./',
@@ -10,7 +10,7 @@ const staticAssets = [
 
 
 ];
-/*
+
 const wb = new WorkboxSW();
 wb.precache(staticAssets);
 
@@ -20,8 +20,15 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 	cacheExpiration: {maxEntries: 20, maxAgeSeconds: 12*60*60},
 	cacheableResponse: {statuses: [0,200]}
 }));
-*/
 
+window.addEventListener('beforeinstallprompt', (e) => {
+	// Prevent Chrome 67 and earlier from automatically showing the prompt
+	e.preventDefault();
+	// Stash the event so it can be triggered later.
+	deferredPrompt = e;
+  });
+
+/*
 // activer le manifest en horsligne 
 self.addEventListener("fetch", function(event) {} );
 
@@ -74,3 +81,4 @@ async function networkFirst(req) {
 	}
 }
 
+*/
