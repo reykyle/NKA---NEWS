@@ -26,6 +26,10 @@ window.addEventListener('load', async e => {
 			console.log(`SW NON ENREGITRÉ ! `);
 		}
 
+		window.addEventListener('beforeinstallprompt', event => {
+            event.prompt();
+        });
+
 	}
 
 });

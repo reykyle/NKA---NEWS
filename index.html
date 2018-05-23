@@ -19,16 +19,7 @@
 	<h1> News </h1>
 	<select name="" id="sourceSelector" ></select>
 </header>
-<button hidden>Show Prompt</button>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-        window.addEventListener('beforeinstallprompt', event => {
-            event.prompt();
-            button.setAttribute('disabled', true);
-        });
-      }
-    </script>
+
 
 <main>
 	
