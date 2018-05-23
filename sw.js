@@ -21,14 +21,6 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 	cacheableResponse: {statuses: [0,200]}
 }));
 
-window.addEventListener("beforeinstallprompt", function(e) { 
-	// log the platforms provided as options in an install prompt 
-	console.log(e.platforms); // e.g., ["web", "android", "windows"] 
-	e.userChoice.then(function(outcome) { 
-	  console.log(outcome); // either "installed", "dismissed", etc. 
-	}, handleError); 
-  });
-
 /*
 // activer le manifest en horsligne 
 self.addEventListener("fetch", function(event) {} );
