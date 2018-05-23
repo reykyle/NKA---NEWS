@@ -1,0 +1,10 @@
+{
+  "articles": [
+    {
+      "title": "Erreur",
+      "url": "",
+      "urlToImage": "images/photo.jpg",
+      "description": "Try loading the page again when you're online."
+    }
+  ]
+}
