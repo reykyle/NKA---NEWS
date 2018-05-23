@@ -3,18 +3,14 @@ const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
-window.addEventListener("beforeinstallprompt", function(e) {
-	e.preventDefault(); // Prevents immediate prompt display
-  
-	// Shows prompt after a user clicks an "install" button
-	installButton.addEventListener("click", function(e) {
-	  e.prompt();
-	});
-  
-	installButton.hidden = false; // Make button operable
-  });
+let deferredPrompt;
 
-  beforeinstallpromptevent.prompt();
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
 
 window.addEventListener('load', async e => {
 	updateNews();
