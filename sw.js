@@ -73,4 +73,5 @@ async function networkFirst(req) {
 		return cachedResponse || await caches.match('./fallback.json');
 	}
 }
+
 */
