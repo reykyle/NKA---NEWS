@@ -21,6 +21,12 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 	cacheableResponse: {statuses: [0,200]}
 }));
 
+// push notification
+
+Notification.requestPermission(function(status) {
+    console.log('Notification permission status:', status);
+});
+
 /*
 // activer le manifest en horsligne 
 self.addEventListener("fetch", function(event) {} );
