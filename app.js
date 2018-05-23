@@ -4,22 +4,6 @@ const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
 
-btnAdd.addEventListener('click', (e) => {
-	// hide our user interface that shows our A2HS button
-	btnAdd.style.display = 'none';
-	// Show the prompt
-	deferredPrompt.prompt();
-	// Wait for the user to respond to the prompt
-	deferredPrompt.userChoice
-	  .then((choiceResult) => {
-		if (choiceResult.outcome === 'accepted') {
-		  console.log('User accepted the A2HS prompt');
-		} else {
-		  console.log('User dismissed the A2HS prompt');
-		}
-		deferredPrompt = null;
-	  });
-  });
 
 window.addEventListener('load', async e => {
 	updateNews();
@@ -80,3 +64,21 @@ function createArticle(article){
 			  `;
 }
 
+
+
+btnAdd.addEventListener('click', (e) => {
+	// hide our user interface that shows our A2HS button
+	btnAdd.style.display = 'none';
+	// Show the prompt
+	deferredPrompt.prompt();
+	// Wait for the user to respond to the prompt
+	deferredPrompt.userChoice
+	  .then((choiceResult) => {
+		if (choiceResult.outcome === 'accepted') {
+		  console.log('User accepted the A2HS prompt');
+		} else {
+		  console.log('User dismissed the A2HS prompt');
+		}
+		deferredPrompt = null;
+	  });
+  });
