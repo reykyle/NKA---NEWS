@@ -1,7 +1,7 @@
 const apiKey = '9d6f75d59a2049e79a885e0731ba4a64'; 
 const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
-const defaultSource = 'le-monde';
+const defaultSource = 'national-geographic';
 
 window.addEventListener('load', async e => {
 	updateNews();
