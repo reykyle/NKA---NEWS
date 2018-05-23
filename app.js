@@ -3,6 +3,17 @@ const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
+window.addEventListener("beforeinstallprompt", function(e) {
+	e.preventDefault(); // Prevents immediate prompt display
+  
+	// Shows prompt after a user clicks an "install" button
+	installButton.addEventListener("click", function(e) {
+	  e.prompt();
+	});
+  
+	installButton.hidden = false; // Make button operable
+  });
+
 window.addEventListener('load', async e => {
 	updateNews();
 	await updateSources();

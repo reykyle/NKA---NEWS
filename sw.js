@@ -11,8 +11,6 @@ const staticAssets = [
 
 ];
 
-BeforeInstallPromptEvent.prompt();
-
 const wb = new WorkboxSW();
 wb.precache(staticAssets);
 
