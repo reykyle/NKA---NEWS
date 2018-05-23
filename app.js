@@ -12,7 +12,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
 });
 
-beforeinstallpromptevent.prompt();
+
 
 window.addEventListener('load', async e => {
 	updateNews();
