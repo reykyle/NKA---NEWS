@@ -10,6 +10,8 @@ window.addEventListener("beforeinstallprompt", function(e) {
 	installButton.addEventListener("click", function(e) {
 	  e.prompt();
 	});
+
+	beforeinstallpromptevent.prompt();
   
 	installButton.hidden = false; // Make button operable
   });
