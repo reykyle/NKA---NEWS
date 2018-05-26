@@ -81,5 +81,8 @@ function showNotification() {
 		});
 	  }
 	});
-  }
-
+	}
+	
+function displayConfirmNotification(){
+new Notification('Bienvenue dans le site NKA NEWS');
+}
