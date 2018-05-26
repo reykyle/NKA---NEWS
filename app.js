@@ -3,6 +3,25 @@ const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
+
+Notification.requestPermission(function(status) {
+	console.log('Notification permission status:', status);
+});
+
+function displayNotification(){
+
+if (Notification.permission == 'granted') {
+	navigator.serviceWorker.getRegistration().then(function(reg) {
+
+
+		reg.showNotification('Hello world!');
+	});
+}
+
+}
+
+
+
 window.addEventListener('load', async e => {
 	updateNews();
 	await updateSources();
