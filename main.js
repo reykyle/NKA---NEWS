@@ -13,3 +13,4 @@ Notification.requestPermission(function(status) {
     }
 });
 	
+displayNotification();
