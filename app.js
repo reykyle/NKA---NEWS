@@ -68,8 +68,15 @@ Notification.requestPermission(function(status) {
 });
 	
 function displayNotification(){
-	navigator.serviceWorker.getRegistration().then(function(swreq){
-		swreq.showNotification('bienvenue dans nka news !');
-	});
+
+	if (Notification.permission === 'granted') {
+		navigator.serviceWorker.getRegistration().then(function(reg) {
+	
+			// TODO 2.4 - Add 'options' object to configure the notification
+	
+			reg.showNotification('Hello world!');
+		});
+	}
+
 }
 
