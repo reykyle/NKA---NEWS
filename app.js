@@ -62,7 +62,7 @@ function createArticle(article){
 			    </div>
 			  `;
 }
-
+/*
 Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
 });
@@ -71,4 +71,30 @@ function displayNotification(){
 	navigator.serviceWorker.getRegistration().then(function(swreq){
 		swreq.showNotification('bienvenue dans nka news !');
 	});
+}
+*/
+
+function displayConfirmNotification() {
+  var options = {
+    body: 'You successfully subscribed to our Notification service!'
+  };
+  new Notification('Successfully subscribed!', options);
+}
+
+function askForNotificationPermission() {
+  Notification.requestPermission(function(result) {
+    console.log('User Choice', result);
+    if (result !== 'granted') {
+      console.log('No notification permission granted!');
+    } else {
+      displayConfirmNotification();
+    }
+  });
+}
+
+if ('Notification' in window) {
+  for (var i = 0; i < enableNotificationsButtons.length; i++) {
+    enableNotificationsButtons[i].style.display = 'inline-block';
+    enableNotificationsButtons[i].addEventListener('click', askForNotificationPermission);
+  }
 }
