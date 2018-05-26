@@ -69,7 +69,7 @@ Notification.requestPermission(function(status) {
 	
 function displayNotification(){
 
-	if (Notification.permission === 'granted') {
+	if (Notification.permission == 'granted') {
 		navigator.serviceWorker.getRegistration().then(function(reg) {
 	
 			// TODO 2.4 - Add 'options' object to configure the notification
