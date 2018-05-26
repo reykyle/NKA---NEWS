@@ -22,11 +22,10 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 }));
 
 function displayConfirmNotification(){
-	if('serviceWorker' in navigator){
 			navigator.serviceWorker.ready.then(function(swreq){
 				swreq.showNotification('bienvenue dans nka news ! (from sw)');
 			});
-	}
+	
 }
 
 
