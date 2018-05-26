@@ -17,9 +17,8 @@ window.addEventListener('load', async e => {
 	if ('serviceWorker' in navigator ) {
 		try{
 			navigator.serviceWorker.register('sw.js');
-			console.log(`SW ENREGITRÉ ! `);
-
-			
+			console.log(`SW ENREGITRÉ ! `);	
+		
 		}
 
 		catch(error){
@@ -69,5 +68,9 @@ Notification.requestPermission(function(status) {
 });
 	
 function displayConfirmNotification(){
-new Notification('Bienvenue dans le site NKA NEWS');
+	if('serviceWorker' in navigator){
+			navigator.serviceWorker.ready.then(function(swreq){
+				swreq.showNotification('bienvenue dans nka news ! (from sw)');
+			});
+	}
 }
