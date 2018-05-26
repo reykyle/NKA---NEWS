@@ -67,10 +67,8 @@ Notification.requestPermission(function(status) {
     console.log('Notification permission status:', status);
 });
 	
-function displayConfirmNotification(){
-	if('serviceWorker' in navigator){
-			navigator.serviceWorker.ready.then(function(swreq){
-				swreq.showNotification('bienvenue dans nka news ! (from sw)');
-			});
-	}
+function displayNotification(){
+	navigator.serviceWorker.getRegistration().then(function(swreq){
+		swreq.showNotification('bienvenue dans nka news !');
+	});
 }

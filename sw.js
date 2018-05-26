@@ -21,12 +21,6 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 	cacheableResponse: {statuses: [0,200]}
 }));
 
-function displayConfirmNotification(){
-			navigator.serviceWorker.ready.then(function(swreq){
-				swreq.showNotification('bienvenue dans nka news ! (from sw)');
-			});
-	
-}
 
 
 /*
