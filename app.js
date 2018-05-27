@@ -101,7 +101,7 @@ Notification.requestPermission(function(status) {
 
 function showNotification() {
   Notification.requestPermission(function(status) {
-    if (status === 'granted') {
+    if (Notification.status === 'granted') {
       navigator.serviceWorker.ready.then(function(registration) {
         registration.showNotification('Vibration Sample', {
           body: 'Buzz! Buzz!',
