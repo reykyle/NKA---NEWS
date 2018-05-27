@@ -3,14 +3,14 @@ const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
-
+/*
 Notification.requestPermission(function(status) {
 	console.log('Notification permission status:', status);
 });
 
 function displayNotification(){
 
-if (Notification.permission === 'granted') {
+if (Notification.permission == 'granted') {
 	navigator.serviceWorker.getRegistration().then(function(reg) {
 
 		var options = {
@@ -24,13 +24,30 @@ if (Notification.permission === 'granted') {
 		};
 
 		reg.showNotification('Hello world!');
-		console.log('notification', status);
+	
 	});
 }
 
 }
 
+*/
 
+navigator.serviceWorker.register('sw.js');
+
+function showNotification() {
+  Notification.requestPermission(function(result) {
+    if (result === 'granted') {
+      navigator.serviceWorker.ready.then(function(registration) {
+        registration.showNotification('Vibration Sample', {
+          body: 'Buzz! Buzz!',
+          icon: 'images/icons/icon-192x192.png',
+          vibrate: [200, 100, 200, 100, 200, 100, 200],
+          tag: 'vibration-sample'
+        });
+      });
+    }
+  });
+}
 
 window.addEventListener('load', async e => {
 	updateNews();
