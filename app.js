@@ -97,14 +97,19 @@ function createArticle(article){
 
 Notification.requestPermission(function(status) {
 	console.log('Notification permission status:', status);
-	if (Notification.status === 'granted') {
-		navigator.serviceWorker.ready.then(function(registration) {
-			registration.showNotification('Vibration Sample', {
-				body: 'Buzz! Buzz!',
-				icon: 'images/icons/icon-192x192.png',
-				vibrate: [200, 100, 200, 100, 200, 100, 200],
-				tag: 'vibration-sample'
-			});
-		});
-	}
 });
+
+function showNotification() {
+  Notification.requestPermission(function(result) {
+    if (result === 'granted') {
+      navigator.serviceWorker.ready.then(function(registration) {
+        registration.showNotification('Vibration Sample', {
+          body: 'Buzz! Buzz!',
+          icon: 'images/icons/icon-192x192.png',
+          vibrate: [200, 100, 200, 100, 200, 100, 200],
+          tag: 'vibration-sample'
+        });
+      });
+    }
+  });
+}

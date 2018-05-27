@@ -22,6 +22,23 @@ wb.router.registerRoute(/.*\.(png|jpg|jpeg|gif)/,wb.strategies.cacheFirst({
 	cacheableResponse: {statuses: [0,200]}
 }));
 
+async function networkFirst(req) {
+
+	const cache = await caches.open('news-dynamic');
+
+	try {
+
+		const res = await fetch(req);
+		cache.put(req, res.clone());
+		return res;
+	}
+
+	catch (error) {
+		const  cachedResponse = await cache.match(req);
+		return cachedResponse || await caches.match('./fallback.json');
+	}
+}
+
 
 
 /*
