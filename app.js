@@ -3,38 +3,6 @@ const main= document.querySelector('main');
 const sourceSelector = document.querySelector('#sourceSelector');
 const defaultSource = 'national-geographic';
 
-/*
-Notification.requestPermission(function(status) {
-	console.log('Notification permission status:', status);
-});
-
-function displayNotification(){
-
-if (Notification.permission == 'granted') {
-	navigator.serviceWorker.getRegistration().then(function(reg) {
-
-		var options = {
-			body: 'Here is a notification body!',
-			icon: 'images/icons/icon-72x72.png',
-			vibrate: [100, 50, 100],
-			data: {
-				dateOfArrival: Date.now(),
-				primaryKey: 1
-			}
-		};
-
-		reg.showNotification('Hello world!');
-	
-	});
-}
-
-}
-
-*/
-
-
-
-
 window.addEventListener('load', async e => {
 	updateNews();
 	await updateSources();
@@ -49,8 +17,9 @@ window.addEventListener('load', async e => {
 	if ('serviceWorker' in navigator ) {
 		try{
 			navigator.serviceWorker.register('sw.js');
-			console.log(`SW ENREGITRÉ ! `);	
-		
+			console.log(`SW ENREGITRÉ ! `);
+
+			
 		}
 
 		catch(error){
@@ -96,20 +65,21 @@ function createArticle(article){
 }
 
 Notification.requestPermission(function(status) {
-	console.log('Notification permission status:', status);
+    console.log('Notification permission status:', status);
 });
 
 function showNotification() {
-  Notification.requestPermission(function(result) {
-    if (result === 'granted') {
-      navigator.serviceWorker.ready.then(function(registration) {
-        registration.showNotification('Vibration Sample', {
-          body: 'Buzz! Buzz!',
-          icon: 'images/icons/icon-192x192.png',
-          vibrate: [200, 100, 200, 100, 200, 100, 200],
-          tag: 'vibration-sample'
-        });
-      });
-    }
-  });
-}
+	Notification.requestPermission(function(result) {
+	  if (result === 'granted') {
+		navigator.serviceWorker.ready.then(function(registration) {
+		  registration.showNotification('Vibration Sample', {
+			body: 'Buzz! Buzz!',
+			icon: 'images/icons/icon-192x192.png',
+			vibrate: [200, 100, 200, 100, 200, 100, 200],
+			tag: 'vibration-sample'
+		  });
+		});
+	  }
+	});
+  }
+
