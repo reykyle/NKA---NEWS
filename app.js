@@ -95,10 +95,13 @@ function createArticle(article){
 			  `;
 }
 
+Notification.requestPermission(function(status) {
+	console.log('Notification permission status:', status);
+});
 
 function showNotification() {
-  Notification.requestPermission(function(result) {
-    if (result === 'granted') {
+  Notification.requestPermission(function(status) {
+    if (status === 'granted') {
       navigator.serviceWorker.ready.then(function(registration) {
         registration.showNotification('Vibration Sample', {
           body: 'Buzz! Buzz!',
