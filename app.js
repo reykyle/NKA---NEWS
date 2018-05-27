@@ -24,6 +24,7 @@ if (Notification.permission === 'granted') {
 		};
 
 		reg.showNotification('Hello world!');
+		console.log('notification', status);
 	});
 }
 
