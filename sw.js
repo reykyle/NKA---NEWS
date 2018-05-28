@@ -109,9 +109,6 @@ importScripts('https://cdn.pushbots.com/js/pushbots-worker.js');
 	
 	function sendNotification(){
 		  PB.register();
-		  PB.q.push(["sendNotification", {title:"Hey ",message:"Why not?", url :"https://google.com"}]);
+		  PB.q.push(["sendNotification", {title:"Hey ",message:"Why not?", url :"hsttps://google.com"}]);
 	}
-	
-	</script>
-	
-	<script src="//cdn.pushbots.com/js/sdk.min.js" type="text/javascript" onload="PB.init()" async>
+
