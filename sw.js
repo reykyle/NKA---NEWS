@@ -80,3 +80,5 @@ async function networkFirst(req) {
 }
 
 */
+
+importScripts('https://cdn.pushbots.com/js/pushbots-worker.js');
