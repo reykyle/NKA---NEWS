@@ -1,4 +1,4 @@
-//importScripts('https://cdn.pushbots.com/js/pushbots-worker.js');
+importScripts('https://cdn.pushbots.com/js/pushbots-worker.js');
 importScripts('./node_modules/workbox-sw/build/importScripts/workbox-sw.dev.v2.1.3.js');
 const staticAssets = [
 		
